@@ -5,8 +5,8 @@ export default {
   events: [
     {
       http: {
-        method: 'post',
-        path: 'create-user',
+        method: 'PUT',
+        path: 'update-user',
         request: {
           schema: {
             'application/json': schema

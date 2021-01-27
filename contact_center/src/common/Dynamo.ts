@@ -52,16 +52,16 @@ const Dynamo = {
 
         return documentClient.update(params).promise()
     },
-    // //delete
-    // async delete (ID, TableName) {
-    //     const params = {
-    //         TableName,
-    //         Key: {
-    //             ID
-    //         }
-    //     };      
-    //     return documentClient.delete(params).promise()
-    // },    
+    //delete
+    async delete (phoneNumber: string, TableName: string) {
+        const params = {
+            TableName,
+            Key: {
+                phoneNumber
+            }
+        };      
+        return documentClient.delete(params).promise()
+    },    
 }
 
 module.exports = Dynamo;

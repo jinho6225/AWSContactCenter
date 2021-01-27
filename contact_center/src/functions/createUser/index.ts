@@ -5,7 +5,7 @@ export default {
   events: [
     {
       http: {
-        method: 'post',
+        method: 'POST',
         path: 'create-user',
         request: {
           schema: {

@@ -1,5 +1,5 @@
 import type { AWS } from '@serverless/typescript';
-import { hello, getUser, createUser, updateUser } from './src/functions';
+import { getUser, createUser, updateUser, deleteUser } from './src/functions';
 
 const tableName = 'userTable'
 
@@ -39,10 +39,10 @@ const serverlessConfiguration: AWS = {
     lambdaHashingVersion: '20201221',
   },
   functions: { 
-    hello,
     getUser,
     createUser,
     updateUser,
+    deleteUser,
   },
   
   resources: {
