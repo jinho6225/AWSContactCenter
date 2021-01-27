@@ -23,7 +23,7 @@ const Dynamo = {
     },
     //post
     async write(data, TableName) {
-        if (!data.ID) {
+        if (!data.phoneNumber) {
             throw Error('no ID on the data')
         }
         const params = {
@@ -32,23 +32,26 @@ const Dynamo = {
         };
         const res = await documentClient.put(params).promise();
         if (!res) {
-            throw Error(`There was an error inserting ID of ${data.ID} in table ${TableName}`)
+            throw Error(`There was an error inserting ID of ${data.phoneNumber} in table ${TableName}`)
         }
         return data;
     },
-    // //put
-    // async update({tableName, primaryKey, primaryKeyValue, updateKey, updateValue}) {
-    //     const params = {
-    //         TableName: tableName,
-    //         Key: { [primaryKey]: primaryKeyValue },
-    //         UpdateExpression: `set ${updateKey} = :updateValue`,
-    //         ExpressionAttributeValues: {
-    //             ':updateValue': updateValue,
-    //         },
-    //         ReturnValues:"UPDATED_NEW"
-    //     }
-    //     return documentClient.update(params).promise()
-    // },
+    //put
+    async update({tableName, primaryKey, primaryKeyValue, updateFirstName, updateLastName, updateAge}) {
+        const params = {
+            TableName: tableName,
+            Key: { [primaryKey]: primaryKeyValue },
+            UpdateExpression: `set firstName = :updateFirstName, lastName = :updateLastName, age = :updateAge`,
+            ExpressionAttributeValues: {
+                ':updateFirstName': updateFirstName,
+                ':updateLastName': updateLastName,
+                ':updateAge': updateAge,
+            },
+            ReturnValues:"UPDATED_NEW"
+        }
+
+        return documentClient.update(params).promise()
+    },
     // //delete
     // async delete (ID, TableName) {
     //     const params = {

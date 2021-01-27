@@ -11,7 +11,7 @@ const getUser: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent, _con
   console.log(event, 'event')
   
   if (!event["Details"].Parameters || !event["Details"].Parameters.phoneNumber) {
-    return callback(null, Responses._400({ message: "missing the phoneNumber from the path" }));
+    return callback(null, Responses._400({ message: "missing the phoneNumber from the DB" }));
   }
   let phoneNumber: string = event["Details"].Parameters.phoneNumber.substring(2);
 

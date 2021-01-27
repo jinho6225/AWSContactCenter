@@ -1,5 +1,5 @@
 import type { AWS } from '@serverless/typescript';
-import { hello, getUser, createUser } from './src/functions';
+import { hello, getUser, createUser, updateUser } from './src/functions';
 
 const tableName = 'userTable'
 
@@ -42,6 +42,7 @@ const serverlessConfiguration: AWS = {
     hello,
     getUser,
     createUser,
+    updateUser,
   },
   
   resources: {
