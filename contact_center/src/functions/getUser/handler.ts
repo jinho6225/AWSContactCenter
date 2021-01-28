@@ -1,13 +1,11 @@
 import "source-map-support/register";
-import type { APIGatewayProxyHandler, APIGatewayProxyEvent } from "aws-lambda";
 import { middyfy } from "@libs/lambda";
-
-const Responses = require("../../common/API_Responses");
-const Dynamo = require("../../common/Dynamo");
+import Responses from "../../common/API_Responses";
+import Dynamo from "../../common/Dynamo";
 
 const tableName: string = process.env.tableName;
 
-const getUser: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent, _context, callback) => {
+const getUser = async (event, _context, callback) => {
   console.log(event, 'event')
   
   if (!event["Details"].Parameters || !event["Details"].Parameters.phoneNumber) {
@@ -22,7 +20,7 @@ const getUser: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent, _con
   if (!user) {
     return callback(null, Responses._400({ message: "no User by phoneNumber" }));
   }
-
+  
   user.statusCode = 200;
   return callback(null, user);
 };

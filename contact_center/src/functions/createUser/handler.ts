@@ -1,23 +1,21 @@
 import 'source-map-support/register';
-import type { APIGatewayProxyHandler, APIGatewayProxyEvent } from "aws-lambda";
 import { middyfy } from "@libs/lambda";
-
-const Responses = require("../../common/API_Responses");
-const Dynamo = require("../../common/Dynamo");
+import Responses from "../../common/API_Responses";
+import Dynamo from "../../common/Dynamo";
 
 const tableName: string = process.env.tableName;
-interface bodyObj {
+
+type Body = {
   phoneNumber: string,
   firstName: string,
   lastName: string,
   age: string
 }
 
-const createUser: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent, _context, callback) => {
+const createUser = async (event, _context, callback) => {
   console.log(event, 'event')
-
   let phoneNumber: string = event["Details"].Parameters.phoneNumber.substring(2);
-  const reqBody:bodyObj = {
+  const reqBody:Body = {
     phoneNumber: phoneNumber,
     firstName: event['Details'].Parameters.firstName,
     lastName: event['Details'].Parameters.lastName,

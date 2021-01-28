@@ -1,10 +1,11 @@
 import type { AWS } from '@serverless/typescript';
-import { getUser, createUser, updateUser, deleteUser, getWeather } from './src/functions';
+import { getUser, createUser, updateUser, deleteUser, getWeather, getGoldSilverPrice } from './src/functions';
 import * as dotenv from 'dotenv';
 dotenv.config({ path: __dirname+'/.env' });
 
-const tableName = 'userTable'
-const API_KEY = process.env.API_KEY;
+const tableName: string = 'userTable'
+const API_KEY: string = process.env.API_KEY!;
+const API_KEY2: string = process.env.API_KEY2!;
 
 const serverlessConfiguration: AWS = {
   service: 'contact-center',
@@ -29,7 +30,8 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       tableName,
-      API_KEY
+      API_KEY,
+      API_KEY2
     },
     iamRoleStatements: [
       {
@@ -48,6 +50,7 @@ const serverlessConfiguration: AWS = {
     updateUser,
     deleteUser,
     getWeather,
+    getGoldSilverPrice,
   },
   
   resources: {

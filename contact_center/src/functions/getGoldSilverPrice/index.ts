@@ -4,8 +4,8 @@ export default {
   events: [
     {
       http: {
-        method: 'DELETE',
-        path: 'delete-user/{phoneNumber}',
+        method: 'GET',
+        path: 'get-price/{type}',
         cors: true,
       }
     }

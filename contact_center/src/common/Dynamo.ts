@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
 const Dynamo = {
@@ -63,4 +62,4 @@ const Dynamo = {
     },    
 }
 
-module.exports = Dynamo;
+export default Dynamo;

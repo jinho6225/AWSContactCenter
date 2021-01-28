@@ -1,4 +1,3 @@
-// import schema from './schema';
 
 export default {
   handler: `${__dirname.split(process.cwd())[1].substring(1)}/handler.main`,
@@ -8,11 +7,6 @@ export default {
         method: 'GET',
         path: 'get-weather/{city}',
         cors: true,
-        // request: {
-        //   schema: {
-        //     'application/json': schema
-        //   }
-        // }
       }
     }
   ]
