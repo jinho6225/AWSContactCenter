@@ -49,7 +49,6 @@ const Dynamo = {
             },
             ReturnValues:"UPDATED_NEW"
         }
-
         return documentClient.update(params).promise()
     },
     //delete
