@@ -15,7 +15,6 @@ building contact center
 - [x] Include as many features of Connect as possible
 - [x] Including branching on DTMF menus
 - [x] Hold music
-- [x] etc.
 - [x] Lambdas will be deployable via SAM, Serverless, or Terraform.
 
 <hr>
@@ -51,60 +50,61 @@ building contact center
 ```
 
 ├── Press1, Press2, Press3  
-│   │           # join customer queue if there are available Sales representatives (Mon to Fri, 9 a.m. to 5 p.m.)
-│   │           # join customer queue if there are available Customer Service representatives (Mon to Fri, 9 a.m. to 5 p.m.)
-│   │           # join customer queue if there are available Technical Support representatives (24/7 always working)
-│   │                                              
-│   │               # if there are no available representatives                   
-│   │                       
-│   ├── Press1          # user can leave call back number to be placed in callback queue
+│   │       # join customer queue if there are available Sales representatives (Mon to Fri, 9 a.m. to 5 p.m.)
+│   │       # join customer queue if there are available Customer Service representatives (Mon to Fri, 9 a.m. to 5 p.m.)
+│   │       # join customer queue if there are available Technical Support representatives (24/7 always working)
+│   │                                                         
+│   │           # if there are no available representatives                   
+│   │                           
+│   ├── Press1      # user can leave call back number to be placed in callback queue
 │   │                   
-│   └── Press2          # user can hang up
+│   └── Press2      # user can hang up
 │
-│
-├── Press4          # manage profile (create, update, delete) by phoneNumber
-│   │                   
-│   ├── Press1          # create profile (get firstName, lastName, age using by Amazon Lex. primary key is user phoneNumber)
+│           
+├── Press4  
+│   │       # manage profile (create, update, delete) by phoneNumber                    
+│   │                           
+│   ├── Press1      # create profile (get firstName, lastName, age using by Amazon Lex. primary key is user phoneNumber)
 │   │                         
-│   │
-│   ├── Press2          # update profile (phone number check using lambda whether or not database has this phoneNumber)
-│   │   │
-│   │   │
-│   │   ├── Press1          # update user name (using by Amazon Lex)    
-│   │   │
-│   │   ├── Press2          # update user age (using by Amazon Lex)  
-│   │   │
-│   │   └── Press3          # move main menu  
-│   │
 │   │               
-│   ├── Press3          # delete profile (phone number check using lambda whether or not database has this phoneNumber)
+│   ├── Press2      # update profile (phone number check using lambda whether or not database has this phoneNumber)
 │   │   │
-│   │   │
-│   │   ├── Press1          # move to next
-│   │   │   │
-│   │   │   ├── Press1          # confirm to delete
-│   │   │   │
-│   │   │   └── Press2          # cancel and move main menu
 │   │   │               
-│   │   └── Press2          # move main menu  
-│   │                                  
-│   └── Press4          # move main menu      
+│   │   ├── Press1      # update user name (using by Amazon Lex)    
+│   │   │               
+│   │   ├── Press2      # update user age (using by Amazon Lex)  
+│   │   │               
+│   │   └── Press3      # move main menu  
+│   │
+│   │                     
+│   ├── Press3      # delete profile (phone number check using lambda whether or not database has this phoneNumber)
+│   │   │
+│   │   │               
+│   │   ├── Press1      # move to next
+│   │   │   │       
+│   │   │   ├── Press1      # confirm to delete
+│   │   │   │               
+│   │   │   └── Press2      # cancel and move main menu
+│   │   │                              
+│   │   └── Press2      # move main menu  
+│   │                                                 
+│   └── Press4      # move main menu      
 │
-│                   
-└── Press5          # navigates to the Bonus feature
+│                                  
+└── Press5      # navigates to the Bonus feature
+    │                       
+    ├── Press1      # get Gold or Silver price
+    │   │
+    │   │               
+    │   ├── Press1      # get Gold price    
+    │   │               
+    │   ├── Press2      # get Silver price   
+    │   │               
+    │   └── Press3      # move previous menu   
+    │                     
+    ├── Press2      # get current weather(using Amazon Lex by CityName)
     │                   
-    ├── Press1          # get Gold or Silver price
-    │   │
-    │   │
-    │   ├── Press1          # get Gold price    
-    │   │
-    │   ├── Press2          # get Silver price   
-    │   │
-    │   └── Press3          # move previous menu   
-    │                   
-    ├── Press2          # get current weather(using Amazon Lex by CityName)
-    │                   
-    └── Press3          # move main menu 
+    └── Press3      # move main menu 
     
 
 ```
