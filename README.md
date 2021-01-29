@@ -21,14 +21,15 @@ building contact center
 
 ## Resources, tools, and runtime used
 
--   Amazon Connect
--   AWS Lambda
--   Amazon DynamoDB
--   Amazon CloudWatch
--   Amazon Lex
--   Node.js
--   TypeScript
--   Serverless
+- [Amazon Connect](https://aws.amazon.com/connect/)
+- [AWS Lambda](https://aws.amazon.com/lambda/)
+- [Amazon DynamoDB](https://aws.amazon.com/dynamobd/)
+- [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
+- [Amazon Lex](https://aws.amazon.com/lex/)
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Serverless](https://www.serverless.com/)
+
 
 <hr>
 
