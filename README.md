@@ -1,5 +1,3 @@
-# Coding Assignment
-
 ## Live Demo
 +1 267-817-5382
 
